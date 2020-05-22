@@ -1,2 +1,13 @@
-<h1>Todos#show</h1>
-<p>Find me in app/views/todos/show.html.erb</p>
+
+<h1>ToDo List</h1>
+<hr />
+
+  <h2>
+    <%= @todo.task %> 
+  </h2>
+
+<%= link_to 'Edit', edit_todo_path %>
+<%= link_to 'Delete', todo_path(@todo), method: :delete %>
+<br />
+<br />
+<%= link_to 'Return', todos_path %>

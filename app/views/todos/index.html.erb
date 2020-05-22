@@ -1,18 +1,26 @@
-<h1> ToDos </h1>
+<h1> To Do Lists </h1>
 
+<h2>Welcome, <%= current_user.first_name %></h2>
 <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-<h2>Welcome <%= current_user.first_name %></h2>
 
+<h3> <%= link_to "Add New List", new_todo_path %> </h3>
 <hr />
-<%= link_to "Add ToDo", new_todo_path %>
-<h3>Your ToDo List</h3>
+<h1>Your Lists:</h1>
+<hr />
 
-    <% @todos.each do |todo| %>
-
-  <dl>
-    <dt> <%= todo.list %>
-      <dd> <%= todo.task %>
-      </dd>
-    </dt>
-  </dl>
+    <% @todos.each do |td| %>
+     
+     <h3> <%= td.task %> </h3>
+      
+    <h5> <%= link_to 'View', todo_path(td)%>
+    <%= link_to 'Edit', edit_todo_path(td)%> 
+    <%= link_to 'Delete', td, method: :delete %>  
+    </h5>
+    <hr />
+       
 <%end%>
+
+
+
+
+       
